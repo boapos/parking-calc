@@ -8,8 +8,6 @@
   margin: 0;
   padding: 0;
   border: 0 solid transparent;
-  height: 100%;
-  overflow: hidden;
 }
 
 html {
@@ -17,10 +15,11 @@ html {
 }
 
 body {
-  min-height: 100vh;
   line-height: 1;
   text-rendering: optimizeSpeed;
   font-family: "Poppins", sans-serif;
+  height: 100%;
+  overflow: hidden;
 }
 
 a {
