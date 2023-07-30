@@ -8,6 +8,8 @@
   margin: 0;
   padding: 0;
   border: 0 solid transparent;
+  height: 100%;
+  overflow: hidden;
 }
 
 html {
