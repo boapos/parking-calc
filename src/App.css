@@ -32,6 +32,8 @@ footer {
   font-size: 13px;
   position: absolute;
   bottom: 30px;
+  width: 100vw;
+  text-align: center;
 }
 
 .main-content {

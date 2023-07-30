@@ -5,6 +5,7 @@ import {
 } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import "./App.css";
+import computeAmount from "./utils/computeAmount";
 
 const App = () => {
   const [amount, setAmount] = useState(0);
@@ -12,28 +13,24 @@ const App = () => {
     <>
       <div className="main-content">
         <h3>Amaia Steps Parking Calculator 🏍️</h3>
-        <p>Select time-in date ↓</p>
+        <p>Tap to select time-in date & time ↓</p>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <MobileDateTimePicker
             ampm={false}
             disableFuture={true}
-            onAccept={(value) => {
-              var hours = Math.ceil(Math.abs(Date.now() - value) / 36e5);
-              var total = 20 + (hours - 2) * 5;
-              setAmount(total);
-            }}
+            onAccept={(timeIn) => setAmount(computeAmount(timeIn))}
           />
         </LocalizationProvider>
         <div className="amount-display">
           <h4>Amount: ₱ {amount}.00</h4>
         </div>
-        <footer>
-          by{" "}
-          <a href="https://boapos.xyz/" target="_blank">
-            Bruce Apos
-          </a>
-        </footer>
       </div>
+      <footer>
+        by{" "}
+        <a href="https://boapos.xyz/" target="_blank">
+          Bruce Apos
+        </a>
+      </footer>
     </>
   );
 };
